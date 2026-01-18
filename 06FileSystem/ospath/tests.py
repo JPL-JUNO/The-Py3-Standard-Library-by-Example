@@ -1,0 +1,31 @@
+"""
+Created time: 2026-01-18 17:20:08
+Author(s)   : Stephen CUI
+File        : tests.py
+Email       : cuixuanstephen@gmail.com
+Description : 测试文件
+"""
+
+# When a program encounters a path name, it often needs to know whether the path refers
+# to a file, directory, or symlink and whether it exists. os.path includes functions for testing
+# all of these conditions.
+
+import os.path
+
+FILENAMES = [
+    __file__,
+    os.path.dirname(__file__),
+    "/",
+    "./broken_link",
+]
+
+for file in FILENAMES:
+    print("File         : {!r}".format(file))
+    print("Absolute     :", os.path.isabs(file))
+    print("Is File?     :", os.path.isfile(file))
+    print("Is Dir       :", os.path.isdir(file))
+    print("Is Link?     :", os.path.islink(file))
+    print("MountPoint?  :", os.path.ismount(file))
+    print("Exists?      :", os.path.exists(file))
+    print("Link Exists? :", os.path.lexists(file))
+    print()
